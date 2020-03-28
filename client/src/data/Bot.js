@@ -7,7 +7,6 @@ class Bot
 		const myName = context.getIn(["room", "players"]).get(myIndex).get("name");
 		const mySelf = context.get("bots").find(a => a.get("name") === myName);
 		const myIndexBot = context.get("bots").findIndex(a => a.get("name") === myName);
-		// console.log(mySelf.get("yourCards").map(a => (a.get("name")))._tail.array);
 		if(context.getIn(["needToBuy", "howMany"]) > 0)
 		{
 			this.buy(context, myIndexBot);
@@ -17,7 +16,6 @@ class Bot
 			const card = this.whichCard(context, mySelf.get("yourCards"));
 			if(card)
 			{
-				// console.log("Carta escolhida: "+card.get("name"));
 				const rotate = ((c) => c % 2 === 0 ? c : -c)(Math.floor(Math.random()*6));
 				const obj = {
 					card: [{

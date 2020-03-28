@@ -15,7 +15,7 @@ class Hall extends React.Component {
 			document.title = "Uno - Hall - " + nextProps.state.getIn(['room', 'name']);
 	}
 	quit = () => {
-		const answer = window.confirm("Deseja realmente sair da sala? (theres no coming back)");
+		const answer = window.confirm("Do you really want to leave the room?");
 		if(answer){
 			this.props.exit();
 		}

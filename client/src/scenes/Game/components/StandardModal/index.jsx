@@ -24,7 +24,7 @@ const StandardModal = (props) => {
 	        			<button
 							className="playerDeatails__buttons__button playerDeatails__buttons__button--close"
 							onClick={props.onCloseModal}>
-								Fechar
+								Close
 						</button>
 	        		</div>
 	        	</div>

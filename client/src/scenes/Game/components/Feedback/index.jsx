@@ -9,12 +9,10 @@ function normalizeText(text, a, b, c, d, e){
 }
 const Feedback = (props) => {
 	const player = props.players.get(props.currentPlayerIndex);
-	const myself = props.currentPlayerIndex === props.myIndex;
 	const howMany = props.howMany;
-	const time = props.time > 9 ? props.time+"s" : "0"+props.time+"s";
-	const text = normalizeText(props.text, ...(myself ? ["You", time, "your", howMany] : 
-		[player.get("name"), time, "his", howMany]));
-	const color = props.color ? ". Current color is "+props.color : "";
+	const time = props.time + " seconds";
+	const text = normalizeText(props.text, ...([player.get("name"), time, "his/her", howMany]));
+	const color = props.color ? ". Current color is " + props.color : "";
 	return (
 		<div className = "message">
 			{text+color}

@@ -25,7 +25,7 @@ const Title = (props) => {
                 UNO
             </h1>
             <p style={style.description}>
-                Jogue <b>UNO</b> online com seus amigos. Its free!
+                Play <b>UNO</b> online with your friends. It's free!
             </p>
         </div>        
     );

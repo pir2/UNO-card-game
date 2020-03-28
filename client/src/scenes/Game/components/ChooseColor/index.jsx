@@ -38,22 +38,22 @@ const ChooseColor = (props) => {
 	        shouldCloseOnOverlayClick = {true}
 	        contentLabel="Choose color">
 	        	<div>
-	        		<p>Escolha uma cor para ser usada daqui para frente</p>
+	        		<p>Choose a color to use from now on</p>
 	        		<div>
 	        			<input type = "radio" name = "color"  id = "blue" value = "blue"/>
-	        			<label htmlFor = "blue" style = {{color: "#000000"}}>Azul</label>
+	        			<label htmlFor = "blue" style = {{color: "#000000"}}>Blue</label>
 	        		</div>
 	        		<div>
 	        			<input type = "radio" name = "color" id = "red" value = "red"/>
-	        			<label htmlFor = "red" style = {{color: "#000000"}}>Vermelho</label>
+	        			<label htmlFor = "red" style = {{color: "#000000"}}>Red</label>
 	        		</div>
 	        		<div>
 	        			<input type = "radio" name = "color" id = "yellow" value = "yellow"/>
-	        			<label htmlFor = "yellow" style = {{color: "#000000"}}>Amarelo</label>
+	        			<label htmlFor = "yellow" style = {{color: "#000000"}}>Yellow</label>
 	        		</div>
 	        		<div>
 	        			<input type = "radio" name = "color" id = "green" value = "green"/>
-	        			<label htmlFor = "green" style = {{color: "#000000"}}>Verde</label>
+	        			<label htmlFor = "green" style = {{color: "#000000"}}>Green</label>
 	        		</div>
 	        		<div className = "divider" style = {{marginTop: "10px", marginBottom: "10px"}}></div>
 	        		<div>
@@ -65,7 +65,7 @@ const ChooseColor = (props) => {
 	        			<button
 								className="playerDeatails__buttons__button playerDeatails__buttons__button--close"
 								onClick={props.onCloseChooseColor}>
-									Fechar
+									Close
 							</button>
 	        		</div>
 	        	</div>

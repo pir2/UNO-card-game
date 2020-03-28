@@ -29,7 +29,7 @@ module.exports.disconnect = function (socket) {
                 socket.broadcast.to(room.name).emit("/hall/exit-member", {
                     message: {
                         from: {id: "THE DOCTOR", name: "SYSTEM"},
-                        text: `${player.name} saiu da sala.`
+                        text: `${player.name} left room.`
                     },
                     playerId: player.socketId
                 });
@@ -75,7 +75,7 @@ module.exports.createRoom = function (socket) {
             {
                 socket.emit("/home/create-room/fail", {
                     created: false,
-                    message: `Falha ao criar sala, este nome já se encontra em uso.`
+                    message: `Failed to create room, this name is already in use.`
                 });
             }
             else
@@ -101,7 +101,7 @@ module.exports.createRoom = function (socket) {
                 socket.broadcast.to("__HOME").emit("/home/load-all-rooms", await Room.find({}));
                 socket.emit("/home/create-room/success", {
                     created: true,
-                    message: 'Sala criada com sucesso!',
+                    message: 'Room successfully created!',
                     roomName: data.name
                 });
             }
@@ -120,9 +120,9 @@ module.exports.joinRoom = function (socket) {
             const room = await Room.findOne({name: data.room});
 
             if(room.players.length === room.capacity)
-                return socket.emit("/home/join-room/fail", "Sala esta esta lotada!");
+                return socket.emit("/home/join-room/fail", "Room is crowded!");
             if(room.players.find(p => p.name === data.nickName))
-                return socket.emit("/home/join-room/fail", "Este nickname já existe");
+                return socket.emit("/home/join-room/fail", "This nickname already exists!");
             const player = {
                 socketId: socket.id,
                 name: data.nickName,

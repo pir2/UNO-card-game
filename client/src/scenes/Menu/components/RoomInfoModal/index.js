@@ -29,7 +29,7 @@ class RoomInfoModal extends Component {
                 style={modalStyle}
                 onRequestClose={this.props.onCloseRoom}
                 shouldCloseOnOverlayClick={true}
-                contentLabel="Escolha uma sala">
+                contentLabel="Choose a room">
                     <div className="container">
                         <div className="row">
                             <div className="col s12 modal__title">

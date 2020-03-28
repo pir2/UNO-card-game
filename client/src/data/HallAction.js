@@ -21,10 +21,9 @@ class HallAction{
 				type: MenuActionTypes.HALL_NEW_MEMBER,
 				data: data.player
 			});
-			// console.log(data);
 			if(data.full){
 				const r = History.location.pathname.substr(6);
-				setTimeout(() => History.push("/game/"+r), 2000);
+				setTimeout(() => History.push("/game/"+r), 3000);
 			}
 		});
 		Socket.getSocket().on("/hall/exit-member", data => {
@@ -50,7 +49,6 @@ class HallAction{
 			});
 		});
 		Socket.getSocket().on("/hall/join-room/check/fail", data => {
-			console.log(data);
 			History.push("/nopermission");
 		});
 		Socket.getSocket().on("/hall/exit", data => {

@@ -28,11 +28,11 @@ function AppView(props) {
 				<Route path="/nopermission">
 					<Error 
 						statusCode = {500}
-						message = {"Você não tem permissão para acessar esta sala"} 
+						message = {"You are not allowed to access this room"} 
 						{...props} />
 				</Route>
 				<Route>
-					<Error statusCode = {404} message = {"Esta página não existe"} {...props} />
+					<Error statusCode = {404} message = {"This page does not exist"} {...props} />
 				</Route>
 			</Switch>
 		</Router>

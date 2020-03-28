@@ -19,7 +19,7 @@ class Error extends React.Component{
 										<span className="txt">~err</span>
 									</div>
 									<div className="error__primaryText">
-										<span className="bold">You</span> <span>should&#39;nt</span> be here!
+										<span className="bold">You</span> <span>should not</span> be here!
 									</div>
 									<div className="error__secondaryText">
 										{this.props.message}
@@ -29,6 +29,8 @@ class Error extends React.Component{
 									</div>
 									<div className="error__gitButton">
 										<a href="https://github.com/pedrooaugusto" className="link">@pedrooaugusto</a>
+										<br/>
+										<a href="https://github.com/PGNetHun/UNO-card-game" className="link">@PGNetHun</a>
 									</div>
 								</div>
 							</div>

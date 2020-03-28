@@ -7,12 +7,12 @@ const PlayersList = ({room}) => {
         return (<li key = {index}>{item.name || item}</li>);
     });
     const text = playersLeft === 0 ? 
-        "Esta sala esta cheia." : 
-        "Faltam "+playersLeft+" jogadores para começar o jogo.";
+        "This room is full." : 
+        "Missing " + playersLeft +" player(s) to start the game.";
 
     return (
     	<div>
-			<label className="info-label">Pessoas na sala:</label>
+            <label className="info-label">People in the room:</label>
         	<ul className="modal-list-peoples">
                 {players}
             </ul>

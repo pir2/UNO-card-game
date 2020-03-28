@@ -46,18 +46,18 @@ class GameAction{
 				type: MenuActionTypes.GAME_LOAD_DATA_SUCCESSFUL,
 				data
 			});
-			// const id = setInterval(() => {
-			// 	AppDispatcher.dispatch({
-			// 		type: MenuActionTypes.GAME_DECREMENT_TIME,
-			// 		data: ((a) => {
-			// 			Socket.getSocket().emit("/game/timeouted", a);						
-			// 		})
-			// 	});
-			// }, 1000);
-			// AppDispatcher.dispatch({
-			// 	type: MenuActionTypes.GAME_SET_TIME_ID,
-			// 	data: id
-			// });
+			const id = setInterval(() => {
+				AppDispatcher.dispatch({
+					type: MenuActionTypes.GAME_DECREMENT_TIME,
+					data: ((a) => {
+						Socket.getSocket().emit("/game/timeouted", a);						
+					})
+				});
+			}, 1000);
+			AppDispatcher.dispatch({
+				type: MenuActionTypes.GAME_SET_TIME_ID,
+				data: id
+			});
 		});
 		Socket.getSocket().on("/game/request-cards--bot", (data) => {
 			AppDispatcher.dispatch({
@@ -139,7 +139,11 @@ class GameAction{
 			type: MenuActionTypes.GAME_CLOSE_UNOING
 		});	
 	}
-	endGame(){
+	endGame() {
+		AppDispatcher.dispatch({
+			type: MenuActionTypes.GAME_CLEAR_TIME_ID
+		});
+
 		History.push("/");
 	}
 	closeStandardModal(){

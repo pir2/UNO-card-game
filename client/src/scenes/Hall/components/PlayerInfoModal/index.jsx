@@ -17,7 +17,7 @@ const PlayerInfoModal = (props) => {
 	        style={modalStyle}
 	        onRequestClose={props.onCloseModal}
 	        shouldCloseOnOverlayClick={true}
-	        contentLabel="Info Jogador">
+	        contentLabel="Player Info">
 	        	<Content {...props} />
 	    </ReactModal>
 	);

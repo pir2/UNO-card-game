@@ -40,7 +40,7 @@ const RulesModal = (props) => {
 	        				Well, double click it again!
 	        			</li>
 	        			<li className = "question">
-	        				Por que esse cronômetro não sai do 31s e não funciona ?
+	        				Por que esse cronômetro não sai do 30s e não funciona ?
 	        			</li>
 	        			<li className = "answer">
 	        				Eu até cheguei a implementar, mas me deu ansieadade então achei melhor 
@@ -179,7 +179,7 @@ const RulesModal = (props) => {
 		        	<button
 						className="playerDeatails__buttons__button playerDeatails__buttons__button--close"
 						onClick={props.onCloseModal}>
-							Fechar
+							Close
 					</button>
 	        	</div>
 	    </ReactModal>

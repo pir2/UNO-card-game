@@ -18,13 +18,13 @@ const UnoModal = (props) => {
 	        shouldCloseOnOverlayClick = {true}
 	        contentLabel="Someone is Unoing">
 	        	<div>
-	        		<p>{props.playerName} fez Uno!</p>
+	        		<p>{props.playerName}: UNO !!!</p>
 	        		<div className = "divider" style = {{marginTop: "10px", marginBottom: "10px"}}></div>
 	        		<div>
 	        			<button
 							className="playerDeatails__buttons__button playerDeatails__buttons__button--close"
 							onClick={props.onCloseUnoModal}>
-								Fechar
+								Close
 						</button>
 	        		</div>
 	        	</div>

@@ -35,7 +35,7 @@ class Menu extends Component {
 		            	<div className="col l6 s12 push-l3 push-s0">
 		               		<button className="waves-effect waves-light btn blue hoverable" 
 		                  		onClick = {this.props.createRoom.onOpenModal}>
-		                    		Criar Sala
+								Create Room
 		                	</button>
 		                	<button className="waves-effect waves-light btn blue hoverable right" 
 		                  		onClick = {this.props.createRoom.aboutStates(true)}>
@@ -45,7 +45,9 @@ class Menu extends Component {
 		            </div>
           		</div>
 		        <div className="foot">
-		        	Created By Pedro Augusto
+					<span>Created By Pedro Augusto</span>
+					<br/>
+					<span>Contributors: Gabor Peresztegi, Laszlo Kompa</span>
 		        </div>
 		        <RoomInfoModal 
 		        	isOpen = {this.props.state.getIn(['roomInfo', 'isOpen'])}

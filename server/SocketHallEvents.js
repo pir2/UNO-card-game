@@ -1,7 +1,7 @@
 /*
-	Threat events about
-	the Hall room.
-	The Hall room is room where
+    Threat events about
+    the Hall room.
+    The Hall room is room where
     the players can wait for more
     players join to the room 
     to start the game
@@ -20,16 +20,16 @@ module.exports.joinRoomCheck = function(socket) {
             const room = await Room.findOne({name: data.room});
             if(room === undefined || room === null)
                 return socket.emit("/hall/join-room/check/fail", 
-                    "Esta sala não existe.");
+                    "This room does not exist.");
 
             const player = room.players.find(a => a.socketId === socket.id);
             if(player === undefined || player === undefined)
                 return socket.emit("/hall/join-room/check/fail", 
-                    "Você não tem permissão para acessar esta sala.");
+                    "You are not allowed to access this room.");
             
             if(room.players.length - 1 === room.capacity)
                 return socket.emit("/hall/join-room/check/fail", 
-                    "Esta sala esta lotada :(");
+                    "This room is crowded :(");
             
             socket.join(room.name);
 
@@ -99,7 +99,7 @@ module.exports.exit = function(socket) {
                 socket.broadcast.to(roomName).emit("/hall/exit-member", {
                     message: {
                         from: {id: "THE DOCTOR", name: "SYSTEM"},
-                        text: `${player.name} saiu da sala.`
+                        text: `${player.name} left the room.`
                     },
                     playerId: player.socketId
                 });
@@ -170,7 +170,7 @@ module.exports.removeBot = function(socket) {
             const roomName = Object.values(socket.rooms)[1];
             if(roomName)
             {
-                console.log("\n\nBot has been disconnected from: "+roomName);
+                console.log("\n\nBot has been disconnected from: " + roomName);
                 const room = await Room.findOne({name: roomName});
                 const player = room.players.find(a => a.isBot && a.name === data);
                 player.remove();
@@ -178,7 +178,7 @@ module.exports.removeBot = function(socket) {
                 socket.nsp.to(roomName).emit("/hall/exit-member", {
                     message: {
                         from: {id: "THE DOCTOR", name: "SYSTEM"},
-                        text: `${room.admin.name} removeu o bot ${player.name} da sala.`
+                        text: `${room.admin.name} removed ${player.name} bot from the room.`
                     },
                     playerId: player.socketId
                 });

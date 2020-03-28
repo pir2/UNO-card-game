@@ -50,5 +50,5 @@ io.on("connection", function(socket){
 });
 
 http.listen(app.get("port"), function () {
-    console.log("Rodando na porta "+ app.get("port"));
+    console.log("Started on port "+ app.get("port"));
 });

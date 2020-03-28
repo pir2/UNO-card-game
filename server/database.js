@@ -89,17 +89,11 @@ const insertUser = function (user){
         connectedSince: user.connectedSince || 0,
         isBot: user.isBot || false
     });
-    // console.log('\n\nInsert\n')
-    // for(let x of users)
-    //     console.log(x.id);
 }
 
 /* Remove user */
 const removeUser = function (idUser){
     users = users.filter(a => a.id !== idUser);
-    //console.log('\n\nRemove\n');
-    /*for(let x of users)
-        console.log(x.id);*/
 }
 
 /* Creates a new home */

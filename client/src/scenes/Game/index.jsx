@@ -14,7 +14,7 @@ import './styles.css';
 
 class Game extends React.Component{
 	componentDidMount() {
-		document.title = "Uno - Gaming - "+this.props.history.location.pathname.substr(6);
+		document.title = "Uno - Game - " + this.props.history.location.pathname.substr(6);
 		this.props.checkCredentials();
 	}
 	checkTurn = (b = false) => 
@@ -22,20 +22,20 @@ class Game extends React.Component{
 		if(this.props.state.get("froozen"))
 			return {
 				ok: false, 
-				text: "Processando o último movimento, por favor espere."
+				text: "Processing the last move, please wait."
 			};
 
 		if(this.props.state.get("myIndex") !== this.props.state.get('currentPlayer'))
 			return {
 				ok: false,
-				text: "Não é a sua vez, cara!"
+				text: "It's not your turn, man!"
 			};
 
 		if(b === false && this.props.state.get("myIndex") === this.props.state.getIn(['needToBuy', 'who']) && 
 			this.props.state.getIn(['needToBuy', 'howMany']) > 0)
 			return {
 				ok: false,
-				text: "Você precisa comprar "+this.props.state.getIn(['needToBuy', 'howMany'])+" cartas!"
+				text: "You need to take " + this.props.state.getIn(['needToBuy', 'howMany']) + " cards!"
 			};
 
 		return {
@@ -65,7 +65,7 @@ class Game extends React.Component{
 			if(!ok)
 			{
 				// window.alert("Sua combinação de cartas não é válida!");
-				this.props.openStandardModal("Sua combinação de cartas não é válida!");
+				this.props.openStandardModal("Your card combination is not valid!");
 				return false;
 			}
 			else
@@ -79,7 +79,7 @@ class Game extends React.Component{
 			if(!this.checkCard_(card, last, 0))
 			{
 				// window.alert("Sua combinação de cartas não é válida!");
-				this.props.openStandardModal("Esta combinação de cartas não é válida!");
+				this.props.openStandardModal("This combination of cards is not valid!");
 				return false;
 			}
 			else
@@ -148,7 +148,7 @@ class Game extends React.Component{
 			forSaleCardsLength: this.props.state.get('unUsedCards').size,
 			pass: false
 		};
-		const w = `Não existem cartas para comprar passando a vez...`;
+		const w = `There are no cards to draw passing ...`;
 		if(this.props.state.get('unUsedCards').size === 0)
 			return this.props.buyCardsIsEmpty(w, ctx);
 		if(ok)
@@ -165,7 +165,7 @@ class Game extends React.Component{
 	}
 	render(){
 		if(this.props.state.get("room") === undefined)
-			return <h1><center>Loading! It will take 8 seconds or less!</center></h1>;
+			return <h1><center>Loading! It will take couple of seconds!</center></h1>;
 		const cursor = this.props.state.get("froozen") ? "wait" : "pointer";
 		const capacity = this.props.state.getIn(["room", "capacity"]);
 		const direction = this.props.state.get("direction");
@@ -204,7 +204,7 @@ class Game extends React.Component{
 						<div className = "game__section room__actions">
 							<div className = "game__menu">
 								<div className = "button chat" onClick = {this.props.openChat}>Chat</div>
-								<div className = "button" onClick = {this.buyCard}>Buy</div>
+								<div className = "button" onClick = {this.buyCard}>Pick card</div>
 								<div className = "button" onClick = {this.props.openRulesModal}>Help</div>
 								{this.props.state.get("selectedCards").size > 0 &&
 									(<div className = "button sendAll" onClick = {this.sendAll}>Send All</div>)}

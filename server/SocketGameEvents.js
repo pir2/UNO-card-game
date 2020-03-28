@@ -1,6 +1,6 @@
 
 const {Room} = require("./DatabaseConnection");
-const {cardNames} = require("./Cartas");
+const {cardNames} = require("./CardNames");
 const NUM_CARDS = 7;
 
 module.exports.startGameCheck = function(socket) {
@@ -11,12 +11,12 @@ module.exports.startGameCheck = function(socket) {
             const room = await Room.findOne({name: roomName});
             if(room === undefined || room === null)
                 return socket.emit("/game/start/check/fail", 
-                    "Esta sala não existe.");
+                    "This room does not exist.");
 
             const player = room.players.find(a => a.socketId === socket.id);
             if(player === undefined || player === undefined)
                 return socket.emit("/game/start/check/fail", 
-                    "Você não tem permissão para acessar esta sala.");
+                    "You are not allowed to access this room.");
             return socket.emit("/game/start/check/successful", {
                 isAdmin: room.admin.socketId === socket.id
             });
@@ -45,7 +45,7 @@ module.exports.requestCards = function(socket) {
                         playersCards: new Array(room.players.length).fill(NUM_CARDS),
                         unUsedCards: bara.unUsedCards,
                         yourCards: bara.yourCards[i],
-                        feedback: ["_NAME_ has _TIME_ to make _VERB_ move"]
+                        feedback: ["_NAME_: _TIME_ to move"]
                     });
                 else
                     socket.nsp.to(room.admin.socketId).emit("/game/request-cards--bot", {
@@ -117,7 +117,7 @@ module.exports.buyCard = function(socket) {
             if(data.needToBuy > 1)
             {
                 data.nextPlayerIndex = data.currentPlayerIndex;
-                data.feedback = "_NAME_ has _TIME_ to buy _HOWMANY_ cards";
+                data.feedback = "_NAME_: _TIME_ to pick _HOWMANY_ cards";
                 socket.nsp.to(roomName).emit("/game/buy-card", {
                     from: socket.id,
                     ctx: data
@@ -201,11 +201,11 @@ function evaluateCard(card, {direction, capacity, currentPlayerIndex, howMany = 
 /* evaluates a card and return a message */
 function feedbackCard(card) {
     if(card.name.includes("buy-two"))
-        return "_NAME_ has _TIME_ to buy _HOWMANY_ cards";
+        return "_NAME_: _TIME_ to pick _HOWMANY_ cards";
     else if(card.name === "buy-four")
-        return "_NAME_ has _TIME_ to buy _HOWMANY_ cards";
+        return "_NAME_: _TIME_ to pick _HOWMANY_ cards";
     else
-        return "_NAME_ has _TIME_ to make _VERB_ move";
+        return "_NAME_: _TIME_ to move";
 }
 
 /* check bounds for the next player */

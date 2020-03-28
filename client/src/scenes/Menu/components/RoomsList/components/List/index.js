@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const List = ({rooms, showRoomInfo}) => {
     if(rooms.size === 0)
-        return (<center><p>Não existem salas. Você pode criar uma e jogar contra bots!</p></center>);
+        return (<center><p>There are no rooms. You can create one and play against bots!</p></center>);
     return(
         <table className="bordered rooms-list">
             <thead>

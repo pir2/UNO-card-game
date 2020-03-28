@@ -32,7 +32,7 @@ class RoomsList extends React.Component
                 <List rooms = {this.props.rooms} showRoomInfo = {this.showRoomInfo}/>;
         return (
             <div className="card content">
-                <div className = "content__title">Selecione uma sala</div>
+                <div className="content__title">Select a room</div>
                 <div className="rooms-list-wrapper">
                     {content}
                 </div>

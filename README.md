@@ -5,7 +5,7 @@ The UNO card game built in MERN stack. <br/>A online UNO card game version built
 * [Hall] In this page you wait for more people join to that room to start the game, if needed. (theres a chat too)
 * [Game] The actual game, in this page you play UNO with everyone in that room.
 
-# This repository is forked from:
+### Forked from
 https://github.com/pedrooaugusto/UNO-card-game
 
 ### Prerequisites

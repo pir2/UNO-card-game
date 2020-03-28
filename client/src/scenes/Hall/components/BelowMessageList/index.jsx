@@ -4,7 +4,7 @@ const QuitButton = (props) => {
 	return (
 		<div className={"col s12 l3 hide-on-med-and-"+props.upOrDown}>
 			<div className="hall__room__buttons">
-				<div className="hall__room__buttons__button" onClick={props.quit}>Sair</div>
+				<div className="hall__room__buttons__button" onClick={props.quit}>Quit</div>
 			</div>
 		</div>		
 	);
@@ -22,7 +22,7 @@ const PlayersDiff = ({diff}) => {
 	return (
 		<div className="col s12 l3">
 			<div className="hall__room__playersDiff">
-				<span className="white-text">Faltam {diff} jogadores para começar o jogo.</span>
+				<span className="white-text">There are {diff} players left to start the game.</span>
 			</div>
 		</div>
 	);

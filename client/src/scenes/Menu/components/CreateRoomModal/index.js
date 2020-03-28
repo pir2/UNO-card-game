@@ -42,30 +42,30 @@ class CreateRoomModal extends React.Component {
 		        style={modalStyle}
 		        onRequestClose={this.props.onCloseModal}
 		        shouldCloseOnOverlayClick={true}
-		        contentLabel="Criar sala">
+				contentLabel="Create room">
 		        	<div className="container">
 		            	<div className="row">
 		                	<div className="col s12 modal__title">
-		                		Crie sua sala
+		                		Create your room
 		                    </div>
 		                </div>
 		            	<div className="row">
 		            		<div className="col s12">
 		            			<form method="post" onSubmit={this.handleSubmit} action="#" className="modal__form">
 		            				<div className="form__input">
-		            					<label>Nome da sala</label>
+		            					<label>Room name:</label>
 		            					<input type="text" name="name" maxLength="15" autoComplete="off" required/>
 		            				</div>
 		            				<div className="form__input">
-		            					<label>Username:</label>
+		            					<label>Nickname:</label>
 		            					<input name="nickName" type="text" maxLength="12" autoComplete="off" required/>
 		            				</div>
 		            				<div className="form__input">
-		            					<label>Quantidade de jogadores</label>
+		            					<label>Number of players:</label>
 		            					<input name="capacity" type="number" min="2" max="7" required/>
 		            				</div>
 		            				<div className="form__button form__button--send">
-		            					<button type="submit">CRIAR</button>
+		            					<button type="submit">CREATE</button>
 		            				</div>
 		            				<div className="form__feedback-message">
 		            					{this.props.message}

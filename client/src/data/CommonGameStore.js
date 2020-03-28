@@ -27,7 +27,7 @@ class CommonGameStore extends ReduceStore
 				index: -1,
 				value: 0
 			},
-			cronometro: 31,
+			cronometro: 30,
 			cronometroId: 0,
 			playersCards: [],
 			froozen: false,
@@ -100,7 +100,7 @@ class CommonGameStore extends ReduceStore
 					.update('playersCards', a => a.update(previousPlayer.index, b => b - action.data.card.length))
 					.update('direction', a => action.data.ctx.direction)
 					.update('previousPlayer', a => Immutable.fromJS(previousPlayer))
-					.update('cronometro', a => 31)
+					.update('cronometro', a => 30)
 					.updateIn(['needToBuy', 'who'], a => nextPlayerIndex)
 					.updateIn(['needToBuy', 'howMany'], a => action.data.ctx.howMany);
 				if(state.get('playersCards').get(previousPlayer.index) === 1)
@@ -123,7 +123,7 @@ class CommonGameStore extends ReduceStore
 				}
 				if(isBot && state.get('admin'))
 				{
-					setTimeout(() => {Bot.play(this.getState())}, 4000);
+					setTimeout(() => {Bot.play(this.getState())}, 3000);
 				}
 				return state;
 
@@ -179,13 +179,13 @@ class CommonGameStore extends ReduceStore
 						.update('currentPlayer', a => ctx.nextPlayerIndex)
 						.update('previousPlayer', a => Immutable.fromJS(ctx.previousPlayer))
 						.updateIn(['needToBuy', 'howMany'], a => a > 0 ? a - 1 : a)
-						.update('cronometro', a => state.getIn(['needToBuy', 'howMany']) > 1 ? a : 31);
+						.update('cronometro', a => state.getIn(['needToBuy', 'howMany']) > 1 ? a : 30);
 				if(myself && !ctx.fromBot)
 					state = state.update('yourCards', a => a.push(nCard));
 				if(state.get('admin') && ctx.fromBot)
 					state = state.update('bots', a => a.update(ctx.botIndex, b => b.update('yourCards', c => c.push(nCard))));
 				if(nextIsBot && state.get('admin'))
-					setTimeout(() => {Bot.play(this.getState())}, 4000);
+					setTimeout(() => {Bot.play(this.getState())}, 3000);
 				return state;
 
 			case MenuActionTypes.GAME_DECREMENT_TIME:
@@ -206,6 +206,13 @@ class CommonGameStore extends ReduceStore
 			case MenuActionTypes.GAME_SET_TIME_ID:
 				return state.update('cronometroId', a => action.data);
 
+			case MenuActionTypes.GAME_CLEAR_TIME_ID:
+				let time_id = state.get('cronometroId');
+				clearInterval(time_id);
+				time_id = null;
+
+				return state.update('cronometroId', a => time_id);
+
 			case MenuActionTypes.GAME_TIME_OUTED_EFF:
 				const nextIsBot_ = state
 					.getIn(['room', 'players'])
@@ -216,11 +223,11 @@ class CommonGameStore extends ReduceStore
 					.update('currentPlayer', a => action.data.ctx.nextPlayerIndex)
 					.update('direction', a => action.data.ctx.direction)
 					.update('previousPlayer', a => Immutable.fromJS(action.data.ctx.previousPlayer))
-					.update('cronometro', a => 31)
+					.update('cronometro', a => 30)
 					.updateIn(['needToBuy', 'who'], a => -1)
 					.updateIn(['needToBuy', 'howMany'], a => 0);
 				if(nextIsBot_ && state.get('admin'))
-					setTimeout(() => {Bot.play(this.getState())}, 4000);
+					setTimeout(() => {Bot.play(this.getState())}, 3000);
 				return state;
 
 			case MenuActionTypes.GAME_OPEN_CHOOSE_COLOR:

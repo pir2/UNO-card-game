@@ -20,17 +20,17 @@ const EndGameModal = (props) => {
 	        contentLabel="Game Over">
 	        	<div>
 	        		<center>
-		        		<p>{players.get(0) && (<span><b>{players.get(0).name}</b> ganhou o jogo!</span>)}</p>
+		        		<p>{players.get(0) && (<span><b>{players.get(0).name}</b> won the game!</span>)}</p>
 	        		</center>
 	        		<ul>
-	        			{players.slice(1).map((a, b) => (<li key = {b}>{b+2}º {a.name} - {a.numCards} carta(s)</li>))}
+	        			{players.slice(1).map((a, b) => (<li key = {b}>{b+2}º {a.name} - {a.numCards} card(s)</li>))}
 	        		</ul>
 	        		<div className = "divider" style = {{marginTop: "10px", marginBottom: "10px"}}></div>
 	        		<div>
 	        			<button
 							className="playerDeatails__buttons__button playerDeatails__buttons__button--close"
 							onClick={props.onCloseModal}>
-								Sair
+								Leave
 						</button>
 	        		</div>
 	        	</div>

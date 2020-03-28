@@ -5,7 +5,7 @@ const CloseButton = (props) => {
   		<button
   			className="playerDeatails__buttons__button playerDeatails__buttons__button--close"
   			onClick={props.onCloseModal}>
-  			Fechar
+  			Close
   		</button>
 	);
 }
@@ -15,7 +15,7 @@ const TransformBotButton = (props) => {
 		<button 
 			className="playerDeatails__buttons__button playerDeatails__buttons__button--toBot"
 			onClick={action}>
-				{props.unMake ? "Remover Bot" : "Transformar em bot"}
+				{props.unMake ? "Remove Bot" : "Transform into bot"}
 		</button>
 	);
 }
@@ -36,8 +36,8 @@ const SomeonexFreeSpot = (props) =>{
 		<div className="playerDetails__wrapper">
 			<p className="playerDetails__name">Connecting...</p>
 			<p>
-				Até o momento nenhum jogador se conectou para ocupar esta posição.
-				O administrador desta sala pode adicionar um bot para ocupar esta posição.
+				So far no player has logged in to occupy this position.
+				The administrator of this room can add a bot to occupy this position.
 			</p>
 			<Buttons>
 				<CloseButton {...props}/>
@@ -52,15 +52,14 @@ const SomeonexSomeone = (props) => {
 		<div className="playerDetails__wrapper">
 			<p className="playerDetails__name">{props.player.get('name')}</p>
 			<p>
-				{props.player.get('name')} esta <font color="green">conectado </font> 
-				a esta sala há {t} minutos e <b> 
-				{props.player.get('isBot') ? `` : `não`} é um bot.</b>
+				{props.player.get('name')} has <font color="green">connected </font> 
+				to this room {t} minutes ago and is<b> 
+				{props.player.get('isBot') ? `` : ` not`} a bot.</b>
 			</p>
 			{props.lookAtAdmin && (<p>
-				{props.player.get('name')} é o administrador desta sala,
-				como tal, ele pode adicionar bots a esta sala.
+				{props.player.get('name')} is the administrator of this room, as such, he can add bots to this room.
 			</p>)}
-			{props.player.get('isBot') && (<p>O administrador desta sala pode remover este bot.</p>)}
+			{props.player.get('isBot') && (<p>The administrator of this room can remove this bot.</p>)}
 			<Buttons>
 				{props.iAmAdmin && props.player.get('isBot') && (<TransformBotButton {...props} unMake = {true}/>)}
 				<CloseButton {...props}/>
