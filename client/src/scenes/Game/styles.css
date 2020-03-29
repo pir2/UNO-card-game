@@ -238,7 +238,7 @@ body{
     border-radius: 5cm;
     text-align: center;
     font-weight: bold;
-    margin-right: 5px;
+    margin-left: 5px;
     margin-right: 5px;
     transition-duration: 0.3s;
 }
@@ -270,19 +270,30 @@ body{
     font-weight: bolder;
     font-size: 1.5rem;
     transition-duration: 1.5s;
-    animation-name: stats;
     animation-duration: 1.5s;
     opacity: 0;
     animation-timing-function: ease;
-    /*top: 100%;*/
 }
-.game__section.room__players div.player__stats.negative{
+.game__section.room__players div.player__stats.negative {
     color: red;
+    animation-name: stats-negative;
 }
-.game__section.room__players div.player__stats.positive{
+.game__section.room__players div.player__stats.positive {
     color: green;
+    animation-name: stats-positive;
 }
-@keyframes stats{
+@keyframes stats-negative {
+    from {
+        opacity: 1;
+        top: 5%;
+    }
+
+    to {
+        top: 100%;
+        opacity: 0;
+    }
+}
+@keyframes stats-positive{
     from{
         opacity: 1;
         top: 100%;
@@ -291,6 +302,10 @@ body{
         top: 5%;
         opacity: 0;
     }
+}
+.game__section.room__players div.player__cards {
+    text-align: center;
+    color: white;
 }
 .game__section.room__message{
     min-height: fit-content;

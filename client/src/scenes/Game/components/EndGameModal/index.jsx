@@ -23,7 +23,7 @@ const EndGameModal = (props) => {
 		        		<p>{players.get(0) && (<span><b>{players.get(0).name}</b> won the game!</span>)}</p>
 	        		</center>
 	        		<ul>
-	        			{players.slice(1).map((a, b) => (<li key = {b}>{b+2}º {a.name} - {a.numCards} card(s)</li>))}
+	        			{players.slice(1).map((a, b) => (<li key = {b}>{b+2}. {a.name} - {a.numCards} card(s)</li>))}
 	        		</ul>
 	        		<div className = "divider" style = {{marginTop: "10px", marginBottom: "10px"}}></div>
 	        		<div>
