@@ -1,0 +1,1 @@
+Manifest and icons generated online: https://www.favicon-generator.org/
