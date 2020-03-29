@@ -8,9 +8,7 @@
 */
 const Messages = require("./Messages");
 const {Room} = require("./DatabaseConnection");
-const BOT_NAMES = ["Zed Bot", 
-    "Trickster Bot", "Annie Bot", 
-    "Caitlyn Bot", "Quinn Bot", "Jinx Bot"]; 
+const BOT_NAMES = ["Zed Bot", "Trickster Bot", "Annie Bot", "Caitlyn Bot", "Quinn Bot", "Jinx Bot", "Bill Bot", "David Bot", "Elon Bot"];
 
 /* Check if a player can join to the room */
 module.exports.joinRoomCheck = function(socket) {

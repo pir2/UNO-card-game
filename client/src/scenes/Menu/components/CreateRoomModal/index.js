@@ -62,7 +62,7 @@ class CreateRoomModal extends React.Component {
 		            				</div>
 		            				<div className="form__input">
 		            					<label>Number of players:</label>
-		            					<input name="capacity" type="number" min="2" max="7" required/>
+		            					<input name="capacity" type="number" min="2" max="10" required/>
 		            				</div>
 		            				<div className="form__button form__button--send">
 		            					<button type="submit">CREATE</button>
