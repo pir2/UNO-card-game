@@ -9,6 +9,7 @@ import EndGameModal from './components/EndGameModal/';
 import StandardModal from './components/StandardModal/';
 import RulesModal from './components/RulesModal/';
 import ChatModal from './components/ChatModal/';
+import Chat from './components/Chat/';
 
 import './styles.css';
 
@@ -172,6 +173,7 @@ class Game extends React.Component{
 		const currentPlayerIndex = this.props.state.get('currentPlayer');
 		const ss__ = this.props.state.get("usedCards").size;
 		const lastCard = ss__ > 0 ? this.props.state.get("usedCards").get(ss__ - 1) : undefined;
+
 		return (
 			<div className = "scene--game">
 				<div className = "container__">
@@ -225,6 +227,14 @@ class Game extends React.Component{
 								checkCard = {this.checkCard}
 								openStandardModal = {this.props.openStandardModal}/>
 						</div>
+					</div>
+					<div className="game__chat">
+						<Chat
+							messages={this.props.state.getIn(['messagesModal', 'messages'])}
+							roomName={this.props.state.getIn(['room', 'name'])}
+							socketId={this.props.socketID}
+							sendMessage={this.props.sendMessage}
+							myName={this.props.state.getIn(['room', 'players']).get(this.props.state.get('myIndex')).get('name')} />
 					</div>
 				</div>
 				<ChooseColor 

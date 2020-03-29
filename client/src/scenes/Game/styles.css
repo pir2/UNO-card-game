@@ -3,6 +3,9 @@
     .game__wrapper{
         width: 100%;
     }
+    .game__chat {
+        width: 100%;
+    }
     .game__section.room__players div.player{
         font-size: 1.5rem;
         width: 40px;
@@ -54,7 +57,7 @@
         margin-right: -50%;
         transform: translate(-50%, -50%);
     }
-    .chat__room .messages{
+    .scene--game__room__chat .chat__room .messages {
         max-height: 45vh;
     }
     .chat__room .header{
@@ -97,9 +100,12 @@
 }
 @media only screen and (min-width: 601px){
     .game__wrapper{
-        width: 50%;
+        width: 75%;
     }
-    .game__section.room__players div.player{
+    .game__chat {
+        width: 25%;
+    }
+    .game__section.room__players div.player {
         font-size: 1.5rem;
         width: 45px;
         height: 45px;
@@ -149,7 +155,7 @@
         margin-right: -50%;
         transform: translate(-50%, -50%);
     }
-    .chat__room .messages{
+    .scene--game__room__chat .chat__room .messages {
         max-height: 40vh;
     }
     .chat__room .header{
@@ -207,10 +213,16 @@ body{
 .game__wrapper{
     display: flex;
     flex-flow: column;
-/*	border-left: solid 1px white;
-    border-right: solid 1px white;*/
+	/*border-left: solid 1px white;*/
+    border-right: solid 1px white;
     min-height: fit-content;
     height: 100vh;
+}
+.game__chat {
+    display: flex;
+    height: 100vh;
+    min-height: fit-content;
+    position: relative;
 }
 .game__section{
     padding: 5px;
@@ -431,11 +443,7 @@ body{
     outline: none;
 }
 
-.chat__room{
-    height: 100%;
-    width: 100%;
-}
-.chat__room .header{
+.scene--game__room__chat .chat__room .header {
     font-size: 1.1rem;
     display: flex;
     flex-flow: row;
@@ -443,11 +451,11 @@ body{
     align-items: center;
     height: 35px;
 }
-.chat__room .header .text{
+.scene--game__room__chat .chat__room .header .text {
     width: 95%;
     color: white;
 }
-.chat__room .header .icon{
+.scene--game__room__chat .chat__room .header .icon {
     width: 25px;
     height: 25px;
     line-height: 25px;
@@ -456,6 +464,11 @@ body{
     color: #03a9f4;
     font-size: bold;
     cursor: pointer;
+}
+
+.chat__room {
+    height: 100%;
+    width: 100%;
 }
 .chat__room .messages{
     display: flex;
@@ -467,6 +480,7 @@ body{
     margin-top: 10px;
     background-color: transparent;
     overflow-y: auto;
+    max-height: calc(100% - 6rem);
 }
 .messages .message-wrapper{
     margin-top: 10px;
@@ -490,7 +504,8 @@ body{
 .input__{
     position: absolute;
     bottom: 2rem;
-    width: calc(100% - 26px);
+    left: 5%;
+    width: 90%;
 }
 .input__ input{
     font-size: 0.9rem;
