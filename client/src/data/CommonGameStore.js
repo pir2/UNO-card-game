@@ -207,11 +207,11 @@ class CommonGameStore extends ReduceStore
 				return state.update('cronometroId', a => action.data);
 
 			case MenuActionTypes.GAME_CLEAR_TIME_ID:
-				let time_id = state.get('cronometroId');
-				clearInterval(time_id);
-				time_id = null;
+				let cronometroId = state.get('cronometroId');
+				clearInterval(cronometroId);
+				cronometroId = 0;
 
-				return state.update('cronometroId', a => time_id);
+				return state.update('cronometroId', a => cronometroId);
 
 			case MenuActionTypes.GAME_TIME_OUTED_EFF:
 				const nextIsBot_ = state
