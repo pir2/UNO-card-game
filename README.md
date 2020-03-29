@@ -51,6 +51,11 @@ npm start
 * [React] - Front end Framework used
 * [Node] - Server side language used
 
+## Taiga.io
+
+Taiga.io is used to track new stories, issues, and to store project related wiki pages:
+https://tree.taiga.io/project/pgnet-uno/
+
 ## Authors
 
 * **Pedro Augusto** - *Initial work* - [pedrooaugusto](https://github.com/pedrooaugusto)
