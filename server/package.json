@@ -26,5 +26,8 @@
     "Express"
   ],
   "author": "Pedro Augusto",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "react-app-rewired": "^2.1.5"
+  }
 }
