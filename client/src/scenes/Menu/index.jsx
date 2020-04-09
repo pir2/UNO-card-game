@@ -44,12 +44,7 @@ class Menu extends Component {
 		              	</div>
 		            </div>
           		</div>
-		        <div className="foot">
-					<span>Created By Pedro Augusto</span>
-					<br/>
-					<span>Contributors: Gabor Peresztegi, Laszlo Kompa</span>
-		        </div>
-		        <RoomInfoModal 
+		        <RoomInfoModal
 		        	isOpen = {this.props.state.getIn(['roomInfo', 'isOpen'])}
 		        	displayedRoom = {this.props.state.getIn(['roomInfo', 'displayedRoom'])}
 		        	message = {this.props.state.getIn(['roomInfo', 'message'])}
