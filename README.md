@@ -1,3 +1,12 @@
+#Docker Deployment
+
+```
+git clone https://github.com/pir2/UNO-card-game.git
+docker-compose up
+```
+
+To get English version make sure to run Deploy.sh
+
 # UNO-card-game
 
 The UNO card game built in MERN stack. <br/>A online UNO card game version built with Node, React and SocketIO.<br/> The application consist mainly of three pages:
